@@ -1,0 +1,3 @@
+﻿{
+	"ConnectionString" : "data source=MACPRO;initial catalog=RRCodeTestDB;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework",
+}
