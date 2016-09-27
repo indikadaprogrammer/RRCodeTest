@@ -8,10 +8,10 @@ GO
 -- =============================================
 -- Author:		Indika Katugampala
 -- Create date: 25/09/2016
--- Description:	Returns records of the Entity table with matching type
+-- Description:	Returns records of the Entity table with matching Type
 -- =============================================
 CREATE PROCEDURE [dbo].[GetEntitiesByType] 
-	@type varchar(50) = ''
+	@Type varchar(50) = ''
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -26,7 +26,7 @@ BEGIN
 	FROM
 		dbo.Entity
 	WHERE
-		[Type] = @type
+		[Type] = @Type
 END
 
 GO

@@ -9,6 +9,10 @@ namespace RRCodeTest
 {
     public partial class RRCodeTestDBEntities : DbContext
     {
+        /// <summary>
+        /// Instantiates a RRCodeTestDBEntities object using the EDM connection string.
+        /// </summary>
+        /// <param name="connectionString">EDM Connection string</param>
         public RRCodeTestDBEntities(string connectionString)
             : base(connectionString)
         {

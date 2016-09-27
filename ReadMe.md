@@ -13,6 +13,10 @@
 - Update the connection string in RRCodeTestAutomatedTests\TestInputs\Common\configuration.json so that test cases point to the database.
 - Execute Integration Tests found in IntegrationTests.cs.
 
+## View Automated Test Code Coverage
+- Automated Test Code Coverage can be viewed by opening
+  TestCoverage/index.htm
+
 
 ## Answers to Optional Questions
 
@@ -27,9 +31,25 @@ Configuration of the library is done using a class that implements IConfigurator
 
 #### 6. The library should be resilient to the “cloud” environment. Add //todo: items at specific sections of code that you feel could be refactored, listing what kind of improvements could be made.
 
+It is not clear what is meant by "cloud". However, if you want the library to work against a 
+Azure SQL instance, it should work without modifications to the code, assuming that the user configure the connection string appropriately. Connection string for an Azure SQL instance 
+is in the following format.
+
+<pre>
+Server=tcp:hostname.database.windows.net,1433;Database=RRCodeTestDB;User ID=username@hostname;Password=your_password_here;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;
+</pre>
 
 
 #### 7.	Briefly outline what strategies you may employ in the future as your entity graph and relationships become more complex.
+
+As the entity grapgh and relationships changes, you may be required to update the Entity Data Model to reflect those changes. This can be done by following steps.
+1. Double click EntityDataModel (edmx file) to open the EDM.
+2. Right click and select "Update Model From Database...".
+3. In the "Update Wizard" select the database objects to be Added/Refreshed/Deleted and click "Finish".
+4. If you require more customized entities, associations that does not exist in the Database 
+   you may add them directly to EDM.
+5. Save the edmx file.
+6. 
 
 #### 8.	A customer is complaining about slow response; the issue been traced back to fragmented sql server index, that your library maintains. Please discuss your strategies at diagnosing the problem, and suggest a solution.
 

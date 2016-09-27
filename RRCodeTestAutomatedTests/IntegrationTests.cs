@@ -36,7 +36,7 @@ namespace RRCodeTestAutomatedTests
         #region "Integration Tests"
 
         [TestMethod]
-        public void Test_201_GetEntitiesByType_ZeroRecords()
+        public void Test_101_GetEntitiesByType_ZeroRecords()
         {
             //Copy configuration.json
             UnitTestHelper.CopyFile(Path.Combine(UnitTestHelper.TestInputsFolder, "Common"), Directory.GetCurrentDirectory(), "configuration.json", true);
@@ -53,7 +53,7 @@ namespace RRCodeTestAutomatedTests
 
 
         [TestMethod]
-        public void Test_202_GetEntitiesByType_MultipleRecords()
+        public void Test_102_GetEntitiesByType_MultipleRecords()
         {
             //Copy configuration.json
             UnitTestHelper.CopyFile(Path.Combine(UnitTestHelper.TestInputsFolder, "Common"), Directory.GetCurrentDirectory(), "configuration.json", true);
@@ -70,7 +70,7 @@ namespace RRCodeTestAutomatedTests
         }
         
         [TestMethod]
-        public void Test_203_GetEntitiesByTypeWithoutUsingStoredProcedure()
+        public void Test_103_GetEntitiesByTypeWithoutUsingStoredProcedure()
         {
             //Copy configuration.json
             UnitTestHelper.CopyFile(Path.Combine(UnitTestHelper.TestInputsFolder, "Common"), Directory.GetCurrentDirectory(), "configuration.json", true);

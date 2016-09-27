@@ -10,6 +10,10 @@ namespace RRCodeTest
 {
     public class JsonBasedConfigurator : IConfigurator
     {
+        /// <summary>
+        /// Returns the ConnectionString property of the JSON object found in configuration.json
+        /// </summary>
+        /// <returns></returns>
         public string GetConnectionString()
         {
             using ( StreamReader r = new StreamReader("configuration.json"))

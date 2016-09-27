@@ -35,7 +35,10 @@ namespace RRCodeTestAutomatedTests
         #endregion
 
         #region "Unit Tests"
-
+        /// <summary>
+        /// Make sure GetEntitiesByTypeUsingDBContext method re-throws any exceptions occur while 
+        /// executing the logic.
+        /// </summary>
         [TestMethod]
         [ExpectedException(typeof(Exception))]
         public void Test_001_GetEntitiesByTypeUsingDBContextThrowsAnException()
@@ -85,6 +88,10 @@ namespace RRCodeTestAutomatedTests
             Assert.AreEqual(2, queryResult.Count, "Expected Count : 2 Actual Count : " + queryResult.Count); 
         }
 
+        /// <summary>
+        /// Make sure GetEntitiesByType method re-throws any exceptions occur while 
+        /// executing the logic.
+        /// </summary>
         [TestMethod]
         [ExpectedException(typeof(EntityException))]
         public void Test_003_GetEntitiesByTypeThrowsAnException()
@@ -94,9 +101,6 @@ namespace RRCodeTestAutomatedTests
             //This should throw an exception
             dataStore.GetEntitiesByType("DummyType");
         }
-
-
-
 
         #endregion
 

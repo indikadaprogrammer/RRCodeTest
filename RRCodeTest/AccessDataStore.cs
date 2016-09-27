@@ -60,10 +60,12 @@ namespace RRCodeTest
             List<Entity> entityList = null;
             try
             {
-                SqlParameter typeParameter = new SqlParameter("@type", Type);
+                SqlParameter typeParameter = new SqlParameter("@Type", Type);
+                //NOTE : Although following two lines do work as expected, it can not be tested using mock frameworks
+                //       since SqlQuery is not marked as virtual. 
                 //List<Entity> entityList = db.Database.SqlQuery<Entity>("GetEntitiesByType @type", typeParameter).ToList();
                 //return entityList;
-                entityList = db.Set<Entity>().SqlQuery("GetEntitiesByType @type", typeParameter).AsNoTracking().ToList();
+                entityList = db.Set<Entity>().SqlQuery("GetEntitiesByType @Type", typeParameter).AsNoTracking().ToList();
             }
             catch (Exception e)
             {
