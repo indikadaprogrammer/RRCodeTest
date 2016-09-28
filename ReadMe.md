@@ -1,12 +1,12 @@
 ## How to Execute Unit Tests
-- Executing unit tests do not require an actual database.
+- Executing unit tests does not require an actual database.
 - Open the test solution is visual studio and 
   run any of the unit tests found in following files :
   - UnitTestAccessDataStore.cs
 
 
 ## How to Execute Integration Tests
-- Executing integration tests require an actual database.
+- Executing integration tests requires an actual database.
 - Create a data base in a SQL Server.
 - Create table "Entity" by executing RRCodeTest\sql\CreateTables.sql.
 - Create stored procedure [dbo.GetEntitiesByType] by executing RRCodeTest\sql\CreateStoredProcs.sql.
@@ -32,7 +32,7 @@ Configuration of the library is done using a class that implements IConfigurator
 #### 6. The library should be resilient to the “cloud” environment. Add //todo: items at specific sections of code that you feel could be refactored, listing what kind of improvements could be made.
 
 It is not clear what is meant by "cloud". However, if you want the library to work against a 
-Azure SQL instance, it should work without modifications to the code, assuming that the user configure the connection string appropriately. Connection string for an Azure SQL instance 
+Azure SQL instance, it should work without modifications to the code, assuming that the user configures the connection string appropriately. Connection string for an Azure SQL instance 
 is in the following format.
 
 <pre>
@@ -42,18 +42,20 @@ Server=tcp:hostname.database.windows.net,1433;Database=RRCodeTestDB;User ID=user
 
 #### 7.	Briefly outline what strategies you may employ in the future as your entity graph and relationships become more complex.
 
-As the entity grapgh and relationships changes, you may be required to update the Entity Data Model to reflect those changes. This can be done by following steps.
+As the entity graph and relationships changes, you may be required to update the Entity Data Model to reflect those changes. This can be done by following steps.
+
 1. Double click EntityDataModel (edmx file) to open the EDM.
 2. Right click and select "Update Model From Database...".
 3. In the "Update Wizard" select the database objects to be Added/Refreshed/Deleted and click "Finish".
-4. If you require more customized entities, associations that does not exist in the Database 
+4. If you require more customized entities, associations that does not exist in the Database, 
    you may add them directly to EDM.
 5. Save the edmx file.
-6. 
+6. If the changes to the edmx causes existing code to break (i.e. since entities that were present before were deleted), fix the code accordingly. 
 
 #### 8.	A customer is complaining about slow response; the issue been traced back to fragmented sql server index, that your library maintains. Please discuss your strategies at diagnosing the problem, and suggest a solution.
 
 If the problem has traced back to fragmented indexes, following would be the corrective actions.
+
 1. Verify the fragmentation level of the Index
    To get the statistics on the index you may use the SQL Server Management Studio(SSMS) or query sys.dm_db_index_physical_stats table. Based on the 
    value of avg_fragment_size_in_percent, you have two options.
